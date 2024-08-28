@@ -2,7 +2,7 @@ import Dashboard from './_components/Dashboard';
 
 function Home() {
   return (
-    <div className="App">
+    <div className="">
       <Dashboard />
     </div>
   );

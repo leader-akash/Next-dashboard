@@ -1,4 +1,4 @@
-
+"use client"
 import { RiExpandUpDownFill } from "react-icons/ri";
 import { GiBubbles } from "react-icons/gi";
 import Link from "next/link";
@@ -8,12 +8,33 @@ import { IoDocumentTextOutline } from "react-icons/io5";
 import { FaRegClock } from "react-icons/fa";
 import { MdOutlinePhotoSizeSelectActual } from "react-icons/md";
 import { IoTrashOutline } from "react-icons/io5";
+import { useEffect, useRef } from "react";
 
 
-const Sidebar = ({ isOpen }) => {
+const Sidebar = ({ isOpen, toggleSidebar }) => {
+
+  const sidebarRef = useRef();
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (window.innerWidth < 768 && sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+        toggleSidebar();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen, toggleSidebar]);
   return (
     <>
-      <aside className={`bg-white p-4 transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0 w-64' : '-translate-x-full hidden'
+      <aside ref={sidebarRef} className={`bg-white p-4 transition-transform duration-300 ease-in-out transform ${isOpen ? 'translate-x-0 w-64' : '-translate-x-full hidden'
         }`}>
         <div className="flex justify-between items-center py-3 px-4 rounded-md bg-[#F8F8FA] text-gray-700 font-bold mb-6">
           <div className='bg-[#ED6700] w-8 h-8 rounded-full flex justify-center items-center text-xs text-white'>

@@ -12,18 +12,27 @@ export default function RootLayout({ children }) {
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
+
+  const debouncing = (func, delay) => {
+    let timer;
+
+    return function (...args){
+      clearTimeout(timer);
+      
+      timer = setTimeout(() => func.apply(this, args), delay)
+    }
+  }
+
   // Automatically collapse sidebar on small screens
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
         setIsSidebarOpen(false); // Hide sidebar by default on small screens
-      } else {
-        setIsSidebarOpen(true); // Show sidebar by default on larger screens
-      }
+      } 
     };
 
     handleResize(); // Set initial state based on current screen size
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", debouncing(handleResize, 400)); // debounced
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -41,7 +50,7 @@ export default function RootLayout({ children }) {
         <div className="flex flex-col min-h-screen">
           <Header  toggleSidebar={toggleSidebar} />
           <div className="flex flex-1">
-            <Sidebar isOpen={isSidebarOpen} />
+            <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar}/>
             <div className="flex flex-1 flex-col">
               {children}
             </div>

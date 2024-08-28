@@ -31,3 +31,26 @@ body {
     text-wrap: balance;
   }
 }
+
+/* globals.css */
+
+@media (min-width: 768px) {
+  .flex-row {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 767px) {
+  .flex-row {
+    flex-direction: column;
+  }
+
+  aside {
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+}
+

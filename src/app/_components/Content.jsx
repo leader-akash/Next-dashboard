@@ -16,7 +16,7 @@ const Content = () => {
         name: "Shared files",
         files: '1.200 files',
         storage: '3.2 GB',
-        bgColor: '[#FAF0E7]',
+        bgColor: 'bg-[#FAF0E7]',
         iconColor: 'blue-500'
         
     },
@@ -26,7 +26,7 @@ const Content = () => {
         name: "Media",
         files: '1.200 files',
         storage: '3.8 GB',
-        bgColor: '[#FFF8E1]',
+        bgColor: 'bg-[#FFF8E1]',
         iconColor: 'blue-500'
 
     },
@@ -36,7 +36,7 @@ const Content = () => {
         name: "Documents",
         files: '1.200 files',
         storage: '3.2 GB',
-        bgColor: '[#E1F5FD]',
+        bgColor: 'bg-[#E1F5FD]',
         iconColor: 'blue-500'
 
     },
@@ -46,7 +46,7 @@ const Content = () => {
         name: "Others",
         files: '1.200 files',
         storage: '24 MB',
-        bgColor: '[#E8F5E9]',
+        bgColor: 'bg-[#E8F5E9]',
         iconColor: 'blue-500'
 
     },
@@ -55,7 +55,7 @@ const Content = () => {
     return (
         <main className=" bg-white p-6">
             <h1 className="text-2xl font-bold text-gray-700 border-b-2 pb-3">Overview</h1>
-            <div className='flex justify-between items-center bg-[#F8F8FA] rounded-xl pt-3 px-5 mt-6'>
+            <div className='flex flex-wrap justify-between items-center bg-[#F8F8FA] rounded-xl pt-3 px-5 mt-6'>
                 <div className="  space-y-5 mt-4 mb-8 px-3">
                     <h3>Upgrade account</h3>
                     <p>100 GB storage, Access to Dlex support experts, Option to add your family, Extra member benefits.</p>
@@ -63,7 +63,7 @@ const Content = () => {
                         Upgrade Account
                     </button>
                 </div>
-                <div className='relative w-56 h-44'>
+                <div className='hidden  relative w-56 h-44  lg:block'>
                     <Image
                         src="/hero.png"
                         alt="hero"
@@ -84,20 +84,17 @@ const Content = () => {
                 <p className='text-sm text-slate-500'>STORAGE DETAILS</p>
             </div>
 
-            <div className="flex flex-wrap gap-4 mt-4 mb-8">
-                {
-                    cardData.map((el) => (
-                        <div className={`p-5 bg-${el.bgColor} rounded`}>
-                    <div className={`text-2xl text-blue-500`}>
-                        {el.icon}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4 mb-8">
+                {cardData.map((el) => (
+                    <div key={el.id} className={`p-5 ${el.bgColor} rounded`}>
+                        <div className={`text-2xl text-${el.iconColor}`}>
+                            {el.icon}
+                        </div>
+                        <h2 className="font-bold text-gray-700">{el.name}</h2>
+                        <p className='text-gray-400 text-sm'>{el.files}</p>
+                        <p className="text-xl text-gray-900 mt-8">{el.storage}</p>
                     </div>
-                    <h2 className="font-bold text-gray-700">{el.name}</h2>
-                    <p className='text-gray-400 text-sm'>{el.files}</p>
-                    <p className="text-xl text-gray-900 mt-8">{el.storage}</p>
-                </div>
-                    ))
-                }
-              
+                ))}
             </div>
 
             <h2 className='font-bold mb-5'> Recent files</h2>
