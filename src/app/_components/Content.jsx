@@ -16,7 +16,7 @@ const Content = () => {
         files: '1.200 files',
         storage: '3.2 GB',
         bgColor: 'bg-[#FAF0E7]',
-        iconColor: 'blue-500'
+        iconColor: 'text-pink-800'
         
     },
     {
@@ -26,7 +26,7 @@ const Content = () => {
         files: '1.200 files',
         storage: '3.8 GB',
         bgColor: 'bg-[#FFF8E1]',
-        iconColor: 'blue-500'
+        iconColor: 'text-orange-500'
 
     },
     {
@@ -36,7 +36,7 @@ const Content = () => {
         files: '1.200 files',
         storage: '3.2 GB',
         bgColor: 'bg-[#E1F5FD]',
-        iconColor: 'blue-500'
+        iconColor: 'text-purple-600'
 
     },
     {
@@ -46,13 +46,13 @@ const Content = () => {
         files: '1.200 files',
         storage: '24 MB',
         bgColor: 'bg-[#E8F5E9]',
-        iconColor: 'blue-500'
+        iconColor: 'text-green-600'
 
     },
    ]
 
     return (
-        <main className=" p-4">
+        <main className="p-4 ">
             <h1 className="text-2xl font-bold text-gray-700 border-b-2 pb-3">Overview</h1>
             <div className='flex flex-wrap justify-between items-center bg-[#F8F8FA] rounded-xl pt-3 px-5 mt-6'>
                 <div className="text-black  space-y-5 mt-4 mb-8 px-3">
@@ -86,7 +86,7 @@ const Content = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4 mb-8">
                 {cardData.map((el) => (
                     <div key={el.id} className={`p-5 ${el.bgColor} rounded`}>
-                        <div className={`text-2xl text-${el.iconColor}`}>
+                        <div className={`text-4xl sm:text-3xl ${el.iconColor}`}>
                             {el.icon}
                         </div>
                         <h2 className="font-bold text-gray-700">{el.name}</h2>
