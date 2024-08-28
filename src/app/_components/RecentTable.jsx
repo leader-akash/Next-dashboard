@@ -105,8 +105,8 @@ const RecentTable = () => {
     ];
 
     return (
-        <div className="overflow-x-auto">
-            <table className="min-w-full text-left border border-collapse rounded-md">
+        <div className="overflow-x-auto text-black">
+            <table className="min-w-full text-black text-left border border-collapse rounded-md">
                 <thead>
                     <tr className="border-x-2">
                         <th className="py-2 px-4 border-y-2">

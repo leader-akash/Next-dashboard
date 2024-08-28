@@ -1,9 +1,9 @@
-import Dashboard from './_components/Dashboard';
+import Content from "./_components/Content";
 
 function Home() {
   return (
     <div className="">
-      <Dashboard />
+      <Content /> 
     </div>
   );
 }

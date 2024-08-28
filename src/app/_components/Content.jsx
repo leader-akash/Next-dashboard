@@ -6,7 +6,6 @@ import { IoMdImage } from "react-icons/io";
 import { IoDocumentTextSharp } from "react-icons/io5";
 import RecentTable from './RecentTable';
 
-
 const Content = () => {
 
    const cardData = [
@@ -53,10 +52,10 @@ const Content = () => {
    ]
 
     return (
-        <main className=" bg-white p-6">
+        <main className=" p-4">
             <h1 className="text-2xl font-bold text-gray-700 border-b-2 pb-3">Overview</h1>
             <div className='flex flex-wrap justify-between items-center bg-[#F8F8FA] rounded-xl pt-3 px-5 mt-6'>
-                <div className="  space-y-5 mt-4 mb-8 px-3">
+                <div className="text-black  space-y-5 mt-4 mb-8 px-3">
                     <h3>Upgrade account</h3>
                     <p>100 GB storage, Access to Dlex support experts, Option to add your family, Extra member benefits.</p>
                     <button className="bg-[#3855B3]  text-white py-2 px-4 rounded">

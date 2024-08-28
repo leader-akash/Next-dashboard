@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const Header = ({ toggleSidebar }) => {
     return (
-        <header className="bg-white shadow p-4 border-b-2 flex justify-between items-center w-full max-w-full">
+        <header className="bg-white shadow p-4 border-b-2 flex justify-between items-center ">
 
             <div className="flex justify-center items-center space-x-5 text-3xl">
                 <button onClick={toggleSidebar} >
