@@ -4,9 +4,54 @@ import { MdFolderShared } from "react-icons/md";
 import { IoMdFolder } from "react-icons/io";
 import { IoMdImage } from "react-icons/io";
 import { IoDocumentTextSharp } from "react-icons/io5";
+import RecentTable from './RecentTable';
 
 
 const Content = () => {
+
+   const cardData = [
+    {
+        id: 1,
+        icon: <MdFolderShared />,
+        name: "Shared files",
+        files: '1.200 files',
+        storage: '3.2 GB',
+        bgColor: '[#FAF0E7]',
+        iconColor: 'blue-500'
+        
+    },
+    {
+        id: 2,
+        icon: <IoMdImage />,
+        name: "Media",
+        files: '1.200 files',
+        storage: '3.8 GB',
+        bgColor: '[#FFF8E1]',
+        iconColor: 'blue-500'
+
+    },
+    {
+        id: 3,
+        icon: <IoDocumentTextSharp />,
+        name: "Documents",
+        files: '1.200 files',
+        storage: '3.2 GB',
+        bgColor: '[#E1F5FD]',
+        iconColor: 'blue-500'
+
+    },
+    {
+        id: 4,
+        icon: <IoMdFolder />,
+        name: "Others",
+        files: '1.200 files',
+        storage: '24 MB',
+        bgColor: '[#E8F5E9]',
+        iconColor: 'blue-500'
+
+    },
+   ]
+
     return (
         <main className=" bg-white p-6">
             <h1 className="text-2xl font-bold text-gray-700 border-b-2 pb-3">Overview</h1>
@@ -39,84 +84,27 @@ const Content = () => {
                 <p className='text-sm text-slate-500'>STORAGE DETAILS</p>
             </div>
 
-            <div className="grid grid-cols-4 gap-4 mt-4 mb-8">
-                <div className="p-5 bg-[#FAF0E7] rounded">
-                    <div className='text-2xl text-pink-800'>
-                        <MdFolderShared />
+            <div className="flex flex-wrap gap-4 mt-4 mb-8">
+                {
+                    cardData.map((el) => (
+                        <div className={`p-5 bg-${el.bgColor} rounded`}>
+                    <div className={`text-2xl text-blue-500`}>
+                        {el.icon}
                     </div>
-                    <h2 className="font-bold text-gray-700">Shared files</h2>
-                    <p className='text-gray-400 text-sm'>1,200 files</p>
-                    <p className="text-xl text-gray-900 mt-8">3.2 GB</p>
+                    <h2 className="font-bold text-gray-700">{el.name}</h2>
+                    <p className='text-gray-400 text-sm'>{el.files}</p>
+                    <p className="text-xl text-gray-900 mt-8">{el.storage}</p>
                 </div>
-
-                <div className="p-5 bg-[#FFF8E1] rounded">
-                    <div className='text-2xl text-orange-500'>
-                        <IoMdImage />
-                    </div>
-
-                    <h2 className="font-bold text-gray-700">Media</h2>
-                    <p className='text-gray-400 text-sm'>1,200 files</p>
-                    <p className="text-xl text-gray-900 mt-8">2.1 GB</p>
-                </div>
-                <div className="p-5 bg-[#E1F5FD] rounded">
-                    <div className='text-2xl text-purple-600'>
-                        <IoDocumentTextSharp />
-                    </div>
-                    <h2 className="font-bold text-gray-700">Documents</h2>
-                    <p className='text-gray-400 text-sm'>1,200 files</p>
-                    <p className="text-xl text-gray-900 mt-8">3.8 GB</p>
-                </div>
-                <div className="p-5 bg-[#E8F5E9] rounded">
-                    <div className='text-2xl text-green-600'>
-                        <IoMdFolder />
-                    </div>
-
-                    <h2 className="font-bold text-gray-700">Others</h2>
-                    <p className='text-gray-400 text-sm'>1,200 files</p>
-                    <p className="text-xl text-gray-900 mt-8">24 MB</p>
-                </div>
+                    ))
+                }
+              
             </div>
 
             <h2 className='font-bold mb-5'> Recent files</h2>
-            <div className="bg-white shadow rounded p-4">
-                <h2 className="font-bold text-gray-700 mb-4">Recent files</h2>
-                <table className="w-full text-left">
-                    <thead>
-                        <tr>
-                            <th className="py-2">Name</th>
-                            <th className="py-2">Members</th>
-                            <th className="py-2">Last modified</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td className="py-2">Presentation</td>
-                            <td className="py-2">Only you</td>
-                            <td className="py-2">--</td>
-                        </tr>
-                        <tr>
-                            <td className="py-2">Design guidelines</td>
-                            <td className="py-2">Only you</td>
-                            <td className="py-2">Nov 13, 2020</td>
-                        </tr>
-                        <tr>
-                            <td className="py-2">Resources</td>
-                            <td className="py-2">Only you</td>
-                            <td className="py-2">--</td>
-                        </tr>
-                        <tr>
-                            <td className="py-2">Objectives</td>
-                            <td className="py-2">Only you</td>
-                            <td className="py-2">--</td>
-                        </tr>
-                        <tr>
-                            <td className="py-2">Screenshot</td>
-                            <td className="py-2">Only you</td>
-                            <td className="py-2">--</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+
+
+            <RecentTable />
+
         </main>
     );
 };
