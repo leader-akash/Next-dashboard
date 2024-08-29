@@ -5,11 +5,10 @@ import Image from "next/image";
 
 const Header = ({ toggleSidebar }) => {
     return (
-        <header className="bg-white z-50 sm:shadow p-4 border-none sm:border-b flex justify-between items-center max-header">
-
+        <header className="bg-white z-50 sm:shadow p-4 border-none sm:border-b flex justify-between items-center min-w-[320px]">
             <div className="flex justify-center items-center space-x-5 text-3xl">
                 <button onClick={toggleSidebar} className="z-index-[1000]">
-                    <IoMdMenu className="cursor-pointer" onClick={toggleSidebar} />
+                    <IoMdMenu />
                 </button>
                 <div className="flex items-center justify-center space-x-2 text-[#3855B3] text-2.5xl font-bold">
                     <div className="w-5 h-7 rounded-r-full bg-[#3855B3]"></div>

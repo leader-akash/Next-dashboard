@@ -23,11 +23,14 @@ export default function RootLayout({ children }) {
     }
   }
 
-  // Automatically collapse sidebar on small screens
+  // Automatically collapse & open sidebar on small & large screens
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
         setIsSidebarOpen(false); // Hide sidebar by default on small screens
+      } 
+      if (window.innerWidth > 768) {
+        setIsSidebarOpen(true); // open sidebar by default on large screens
       } 
     };
 
@@ -51,7 +54,7 @@ export default function RootLayout({ children }) {
           <Header  toggleSidebar={toggleSidebar} />
           <div className="flex flex-1">
             <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar}/>
-            <div className="flex flex-1 flex-col">
+            <div className="flex flex-1 flex-col w-screen">
               {children}
             </div>
           </div>
